@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trinomio Cuadrado Perfecto</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- MathJax para mostrar fórmulas en notación LaTeX -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <!-- BLOQUE 1: Header, navegación y progreso -->
+  <div id="progressBar"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#inicio">Matemática Fácil</a>
+
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      Matemáticas &gt; Álgebra &gt; Trinomio Cuadrado Perfecto
+    </nav>
+
+    <div class="header-actions">
+      <input id="searchInput" type="search" placeholder="Buscar concepto..." aria-label="Buscar conceptos">
+      <button id="themeToggle" type="button">Modo oscuro</button>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- BLOQUE 2: Hero Section -->
+    <section class="hero">
+      <p class="eyebrow">Álgebra</p>
+      <h1>Trinomio Cuadrado Perfecto</h1>
+      <p class="subtitle">
+        Aprende a reconocer y factorizar un trinomio cuadrado perfecto a partir del cuadrado de un binomio.
+      </p>
+
+      <div class="metrics">
+        <span>⏱ 15 min</span>
+        <span>📘 Nivel: Intermedio</span>
+      </div>
+
+      <div class="prerequisites">
+        <strong>Prerrequisitos:</strong>
+        <span>Potencias</span>
+        <span>Productos notables</span>
+        <span>Multiplicación de monomios</span>
+      </div>
+
+      <a class="cta" href="#fundamentacion">Comenzar lección</a>
+    </section>
+
+    <div class="two-columns">
+      <!-- BLOQUE 3: Fundamentación Atómica -->
+      <section id="fundamentacion" class="card searchable">
+        <h2>1. Fundamentación atómica</h2>
+
+        <h3>Concepto base: cuadrado de un binomio</h3>
+        <p>
+          Al elevar un binomio al cuadrado se obtiene un trinomio formado por el cuadrado del primer término,
+          el doble producto de ambos términos y el cuadrado del segundo término.
+        </p>
+
+        <div class="formula">
+          \[(a+b)^2=a^2+2ab+b^2\]
+          \[(a-b)^2=a^2-2ab+b^2\]
+        </div>
+
+        <h3>Algoritmo básico</h3>
+        <ol>
+          <li>Elevar al cuadrado el primer término.</li>
+          <li>Multiplicar los dos términos y duplicar el resultado.</li>
+          <li>Elevar al cuadrado el segundo término.</li>
+          <li>Unir los tres términos respetando el signo del término central.</li>
+        </ol>
+
+        <h3>Ejemplo flash</h3>
+        <p>\[(x+3)^2=x^2+2(x)(3)+3^2=x^2+6x+9\]</p>
+      </section>
+
+      <!-- BLOQUE 4: Marco Teórico y Modelo Conceptual -->
+      <section class="card searchable">
+        <h2>2. Marco teórico y modelo conceptual</h2>
+
+        <h3>Definición formal</h3>
+        <p>
+          Un trinomio cuadrado perfecto es un polinomio de tres términos que puede expresarse como el cuadrado
+          de un binomio.
+        </p>
+
+        <div class="formula">
+          \[a^2+2ab+b^2=(a+b)^2\]
+          \[a^2-2ab+b^2=(a-b)^2\]
+        </div>
+
+        <h3>Representación visual</h3>
+        <div class="area-model" aria-label="Modelo de áreas de un cuadrado de lado a más b">
+          <div class="area a2">a²</div>
+          <div class="area ab1">ab</div>
+          <div class="area ab2">ab</div>
+          <div class="area b2">b²</div>
+        </div>
+
+        <h3>Regla visual para reconocerlo</h3>
+        <div class="flow">
+          <span>1. ¿Primer término es cuadrado perfecto?</span>
+          <span>→</span>
+          <span>2. ¿Tercer término es cuadrado perfecto?</span>
+          <span>→</span>
+          <span>3. ¿El término central es ±2ab?</span>
+          <span>→</span>
+          <strong>Es TCP</strong>
+        </div>
+
+        <h3>Glosario rápido</h3>
+        <dl>
+          <dt>a²</dt><dd>Cuadrado del primer término.</dd>
+          <dt>2ab</dt><dd>Doble producto del primero por el segundo.</dd>
+          <dt>b²</dt><dd>Cuadrado del segundo término.</dd>
+        </dl>
+      </section>
+    </div>
+
+    <!-- BLOQUE 5: Simulador -->
+    <section id="simulador" class="card full searchable">
+      <h2>3. Simulador interactivo</h2>
+      <p>Mueve los controles para observar cómo se forma un trinomio cuadrado perfecto.</p>
+
+      <div class="controls">
+        <label>
+          Valor de a:
+          <input id="aSlider" type="range" min="1" max="10" value="2">
+          <strong id="aValue">2</strong>
+        </label>
+
+        <label>
+          Valor de b:
+          <input id="bSlider" type="range" min="1" max="10" value="3">
+          <strong id="bValue">3</strong>
+        </label>
+
+        <label>
+          Signo:
+          <select id="signSelect">
+            <option value="+">+</option>
+            <option value="-">−</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="dynamicSteps" class="dynamic-box"></div>
+
+      <div class="presets">
+        <button type="button" data-a="1" data-b="2" data-sign="+">Caso 1</button>
+        <button type="button" data-a="2" data-b="3" data-sign="+">Caso 2</button>
+        <button type="button" data-a="3" data-b="4" data-sign="-">Caso 3</button>
+      </div>
+    </section>
+
+    <!-- BLOQUE 6: Banco de Ejercicios -->
+    <section class="card full searchable">
+      <h2>4. Banco de ejercicios resueltos</h2>
+
+      <details>
+        <summary>Nivel 0 — Base operativa</summary>
+        <p><strong>Enunciado:</strong> Calcula \((x+2)^2\).</p>
+        <p>1. \(x^2\)</p>
+        <p>2. \(2(x)(2)=4x\)</p>
+        <p>3. \(2^2=4\)</p>
+        <p class="answer">Resultado: \(x^2+4x+4\)</p>
+      </details>
+
+      <details>
+        <summary>Nivel 1 — Aplicación directa</summary>
+        <p><strong>Enunciado:</strong> Factoriza \(x^2+10x+25\).</p>
+        <p>1. \(x^2=(x)^2\)</p>
+        <p>2. \(25=(5)^2\)</p>
+        <p>3. \(2(x)(5)=10x\)</p>
+        <p class="answer">Resultado: \((x+5)^2\)</p>
+      </details>
+
+      <details>
+        <summary>Nivel 2 — Nivel intermedio</summary>
+        <p><strong>Enunciado:</strong> Factoriza \(4x^2-12x+9\).</p>
+        <p>1. \(4x^2=(2x)^2\)</p>
+        <p>2. \(9=(3)^2\)</p>
+        <p>3. \(-2(2x)(3)=-12x\)</p>
+        <p class="answer">Resultado: \((2x-3)^2\)</p>
+      </details>
+
+      <details>
+        <summary>Nivel 3 — Desafío</summary>
+        <p><strong>Enunciado:</strong> Determina si \(9x^2+24xy+16y^2\) es TCP.</p>
+        <p>1. \(9x^2=(3x)^2\)</p>
+        <p>2. \(16y^2=(4y)^2\)</p>
+        <p>3. \(2(3x)(4y)=24xy\)</p>
+        <p class="answer">Resultado: sí es TCP y factoriza como \((3x+4y)^2\).</p>
+      </details>
+    </section>
+
+    <!-- BLOQUE 7: Práctica, errores y evaluación -->
+    <section class="card full searchable">
+      <h2>5. Práctica autónoma, errores comunes y evaluación</h2>
+
+      <div class="warning">
+        <h3>Errores frecuentes</h3>
+        <ul>
+          <li>Olvidar el término central \(2ab\).</li>
+          <li>Confundir \((a+b)^2\) con \(a^2+b^2\).</li>
+          <li>No comprobar que el primer y tercer término sean cuadrados perfectos.</li>
+          <li>Ignorar el signo del término central al factorizar.</li>
+        </ul>
+      </div>
+
+      <div class="practice">
+        <h3>Práctica aleatoria</h3>
+        <p id="practiceQuestion"></p>
+        <input id="practiceAnswer" type="number" placeholder="Escribe el coeficiente">
+        <button id="checkPractice" type="button">Comprobar</button>
+        <button id="hintPractice" type="button">Pista</button>
+        <p id="practiceFeedback"></p>
+      </div>
+
+      <div class="quiz">
+        <h3>Mini-test diagnóstico</h3>
+
+        <form id="quizForm">
+          <fieldset>
+            <legend>1. ¿Cuál es la factorización de \(x^2+6x+9\)?</legend>
+            <label><input type="radio" name="q1" value="a"> \((x+3)^2\)</label>
+            <label><input type="radio" name="q1" value="b"> \((x+9)^2\)</label>
+            <label><input type="radio" name="q1" value="c"> \((x+6)^2\)</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>2. En \(a^2+2ab+b^2\), ¿qué representa \(2ab\)?</legend>
+            <label><input type="radio" name="q2" value="a"> La suma de los cuadrados</label>
+            <label><input type="radio" name="q2" value="b"> El doble producto de los términos</label>
+            <label><input type="radio" name="q2" value="c"> El cuadrado del segundo término</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>3. ¿Cuál es un trinomio cuadrado perfecto?</legend>
+            <label><input type="radio" name="q3" value="a"> \(x^2+5x+4\)</label>
+            <label><input type="radio" name="q3" value="b"> \(x^2+8x+16\)</label>
+            <label><input type="radio" name="q3" value="c"> \(x^2+3x+9\)</label>
+          </fieldset>
+
+          <button type="submit">Calificar mini-test</button>
+          <p id="quizResult"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- BLOQUE 8: Footer y recursos -->
+  <footer class="footer">
+    <section>
+      <h2>Recursos descargables</h2>
+      <ul>
+        <li><a href="recursos/guia-tcp.pdf">Guía teórica en PDF</a></li>
+        <li><a href="recursos/hoja-trabajo-tcp.pdf">Hoja de trabajo</a></li>
+        <li><a href="recursos/solucionario-tcp.pdf">Solucionario</a></li>
+      </ul>
+    </section>
+
+    <section class="related">
+      <a href="#">← Tema anterior</a>
+      <a href="#">Tema siguiente →</a>
+    </section>
+
+    <section>
+      <h2>Créditos y soporte</h2>
+      <p>Autor/Estudiante: ____________________</p>
+
+      <form id="supportForm">
+        <label>
+          Consulta:
+          <textarea required placeholder="Escribe tu consulta"></textarea>
+        </label>
+        <button type="submit">Enviar consulta</button>
+        <p id="supportMessage"></p>
+      </form>
+    </section>
+  </footer>
+</body>
+</html>
